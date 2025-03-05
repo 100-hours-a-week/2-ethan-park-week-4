@@ -8,7 +8,23 @@
             "date": "2025-02-16 11:00:22",
             "views": 1230,
             "likes": 1000000,
-            "comments": 3000
+            "comment_cnt": 3000,
+            "comments": [
+                {
+                "id": 1,
+                "author": "댓글작성자1",
+                "content": "첫 번째 댓글입니다.",
+                "date": "2021-01-01 10:00:00",
+                "isMyComent": true
+                },
+                {
+                "id": 2,
+                "author": "댓글작성자2",
+                "content": "두 번째 댓글입니다.",
+                "date": "2021-01-01 11:00:00",
+                "isMyComent": true
+                }
+            ]
         },
         {
             "id": 2,
@@ -18,7 +34,23 @@
             "date": "2025-02-17 11:00:22",
             "views": 1230,
             "likes": 1000000,
-            "comments": 3000
+            "comment_cnt": 3000,
+            "comments": [
+                {
+                "id": 1,
+                "author": "댓글작성자1",
+                "content": "첫 번째 댓글입니다.",
+                "date": "2021-01-01 10:00:00",
+                "isMyComent": true
+                },
+                {
+                "id": 2,
+                "author": "댓글작성자2",
+                "content": "두 번째 댓글입니다.",
+                "date": "2021-01-01 11:00:00",
+                "isMyComent": true
+                }
+            ]
         },
         {
             "id": 3,
@@ -28,7 +60,23 @@
             "date": "2025-02-18 11:00:22",
             "views": 1230,
             "likes": 1000000,
-            "comments": 3000
+            "comment_cnt": 3000,
+            "comments": [
+                {
+                "id": 1,
+                "author": "댓글작성자1",
+                "content": "첫 번째 댓글입니다.",
+                "date": "2021-01-01 10:00:00",
+                "isMyComent": true
+                },
+                {
+                "id": 2,
+                "author": "댓글작성자2",
+                "content": "두 번째 댓글입니다.",
+                "date": "2021-01-01 11:00:00",
+                "isMyComent": true
+                }
+            ]
         },
         {
             "id": 4,
@@ -38,7 +86,23 @@
             "date": "2025-02-19 11:00:22",
             "views": 1230,
             "likes": 1000000,
-            "comments": 3000
+            "comment_cnt": 3000,
+            "comments": [
+                {
+                "id": 1,
+                "author": "댓글작성자1",
+                "content": "첫 번째 댓글입니다.",
+                "date": "2021-01-01 10:00:00",
+                "isMyComent": true
+                },
+                {
+                "id": 2,
+                "author": "댓글작성자2",
+                "content": "두 번째 댓글입니다.",
+                "date": "2021-01-01 11:00:00",
+                "isMyComent": true
+                }
+            ]
         }
         ,{
             "id": 5,
@@ -48,7 +112,23 @@
             "date": "2025-02-20 11:00:22",
             "views": 1230,
             "likes": 1000000,
-            "comments": 3000
+            "comment_cnt": 3000,
+            "comments": [
+                {
+                "id": 1,
+                "author": "댓글작성자1",
+                "content": "첫 번째 댓글입니다.",
+                "date": "2021-01-01 10:00:00",
+                "isMyComent": true
+                },
+                {
+                "id": 2,
+                "author": "댓글작성자2",
+                "content": "두 번째 댓글입니다.",
+                "date": "2021-01-01 11:00:00",
+                "isMyComent": true
+                }
+            ]
         }
         ,{
             "id": 6,
@@ -58,7 +138,23 @@
             "date": "2025-02-20 11:00:22",
             "views": 1230,
             "likes": 1000000,
-            "comments": 3000
+            "comment_cnt": 3000,
+            "comments": [
+                {
+                "id": 1,
+                "author": "댓글작성자1",
+                "content": "첫 번째 댓글입니다.",
+                "date": "2021-01-01 10:00:00",
+                "isMyComent": true
+                },
+                {
+                "id": 2,
+                "author": "댓글작성자2",
+                "content": "두 번째 댓글입니다.",
+                "date": "2021-01-01 11:00:00",
+                "isMyComent": true
+                }
+            ]
         }
         ,{
             "id": 7,
@@ -68,7 +164,23 @@
             "date": "2025-02-20 11:00:22",
             "views": 1230,
             "likes": 1000000,
-            "comments": 3000
+            "comment_cnt": 3000,
+            "comments": [
+                {
+                "id": 1,
+                "author": "댓글작성자1",
+                "content": "첫 번째 댓글입니다.",
+                "date": "2021-01-01 10:00:00",
+                "isMyComent": true
+                },
+                {
+                "id": 2,
+                "author": "댓글작성자2",
+                "content": "두 번째 댓글입니다.",
+                "date": "2021-01-01 11:00:00",
+                "isMyComent": true
+                }
+            ]
         }
         ,{
             "id": 8,
@@ -78,7 +190,23 @@
             "date": "2025-02-20 11:00:22",
             "views": 1230,
             "likes": 1000000,
-            "comments": 3000
+            "comment_cnt": 3000,
+            "comments": [
+                {
+                "id": 1,
+                "author": "댓글작성자1",
+                "content": "첫 번째 댓글입니다.",
+                "date": "2021-01-01 10:00:00",
+                "isMyComent": true
+                },
+                {
+                "id": 2,
+                "author": "댓글작성자2",
+                "content": "두 번째 댓글입니다.",
+                "date": "2021-01-01 11:00:00",
+                "isMyComent": true
+                }
+            ]
         }
         ,{
             "id": 9,
@@ -88,7 +216,23 @@
             "date": "2025-02-20 11:00:22",
             "views": 1230,
             "likes": 1000000,
-            "comments": 3000
+            "comment_cnt": 3000,
+            "comments": [
+                {
+                "id": 1,
+                "author": "댓글작성자1",
+                "content": "첫 번째 댓글입니다.",
+                "date": "2021-01-01 10:00:00",
+                "isMyComent": true
+                },
+                {
+                "id": 2,
+                "author": "댓글작성자2",
+                "content": "두 번째 댓글입니다.",
+                "date": "2021-01-01 11:00:00",
+                "isMyComent": true
+                }
+            ]
         }
         ,{
             "id": 10,
@@ -98,7 +242,23 @@
             "date": "2025-02-20 11:00:22",
             "views": 1230,
             "likes": 1000000,
-            "comments": 3000
+            "comment_cnt": 3000,
+            "comments": [
+                {
+                "id": 1,
+                "author": "댓글작성자1",
+                "content": "첫 번째 댓글입니다.",
+                "date": "2021-01-01 10:00:00",
+                "isMyComent": true
+                },
+                {
+                "id": 2,
+                "author": "댓글작성자2",
+                "content": "두 번째 댓글입니다.",
+                "date": "2021-01-01 11:00:00",
+                "isMyComent": true
+                }
+            ]
         }
     ]
     

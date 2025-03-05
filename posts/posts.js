@@ -22,7 +22,7 @@ document.addEventListener("DOMContentLoaded", () => {
           const validDate = isValidDateFormat(post.date) ? post.date : "날짜 오류";
           const formattedLikes = formatNumber(post.likes);
           const formattedViews = formatNumber(post.views);
-          const formattedComments = formatNumber(post.commentsCnt);
+          const formattedComments = formatNumber(post.comment_cnt);
   
           postContainer.innerHTML = `
             <a href="../detail-post/detail-post.html?id=${post.id}" class="post-title">${truncateTitle(post.title)}</a>
