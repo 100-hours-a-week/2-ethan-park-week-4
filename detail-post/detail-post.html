@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>게시글 상세 조회</title>
+    <link rel="stylesheet" href="detail-post.css">
+</head>
+<body>
+    <div id="navbar-container"></div>
+
+    <div class="container">
+        <div class="header">
+            <h2 id="post-title"></h2>
+            <div class="actions">
+                <button class="btn" id="edit-btn">수정</button>
+                <button class="btn" id="delete-btn">삭제</button>
+                <div id="delete-modal" class="modal">
+                    <div class="modal-content">
+                        <p class="modal-title">게시글을 삭제하시겠습니까?</p>
+                        <p class="modal-subtext">삭제한 내용은 복구할 수 없습니다.</p>
+                        <div class="modal-buttons">
+                            <button id="cancel-btn" class="btn cancel">취소</button>
+                            <button id="confirm-delete-btn" class="btn confirm">확인</button>
+                        </div>
+                    </div>
+                </div>
+                
+            </div>
+        </div>
+        <div class="post-img">
+            <img src="../images/profile.png">
+        </div>
+        <div class="post-content">
+            <p id="post-content"></p>
+        </div>
+        <div class="stats">
+            <div><span id="like-count">0</span> <span>좋아요</span></div>
+            <div><span id="view-count">0</span> <span>조회수</span></div>
+            <div><span id="comment-count">0</span> <span>댓글</span></div>
+        </div>
+        <div class="comment-section">
+            <textarea id="comment-input" placeholder="댓글을 남겨주세요!"></textarea>
+            <button class="btn" id="submit-comment" disabled>댓글 등록</button>
+            <ul id="comments"></ul>
+            <div id="comment-delete-modal" class="modal">
+                <div class="modal-content">
+                    <p class="modal-title">댓글을 삭제하시겠습니까?</p>
+                    <p class="modal-subtext">삭제한 댓글은 복구할 수 없습니다.</p>
+                    <div class="modal-buttons">
+                        <button id="cancel-comment-btn" class="btn cancel">취소</button>
+                        <button id="confirm-comment-delete-btn" class="btn confirm">확인</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="detail-post.js"></script>
+    <script src="../navbar/navbar.js"></script>
+</body>
+</html>
