@@ -1,0 +1,18 @@
+{
+    "users" : [
+        {
+            "id": 1,
+            "email": "ethan@naver.com",
+            "password": "Qwer1234@",
+            "nickname": "ethan",
+            "profile_img": "../images/profile.png"
+        },
+        {
+            "id": 2,
+            "email": "yuchan@naver.com",
+            "password": "Qwer1234@",
+            "nickname": "yuchan",
+            "profile_img": "../images/profile.png"
+        }
+    ]
+}
