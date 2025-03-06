@@ -1,4 +1,4 @@
-import { validateForm } from "../validator/validationPost";
+import { validateForm } from "../validator/validationPost.js";
 
 document.addEventListener("DOMContentLoaded", () => {
     const form = document.getElementById("postForm");
@@ -13,16 +13,16 @@ document.addEventListener("DOMContentLoaded", () => {
     function checkFormValidity() {
         const isValidTitle = validateForm(titleInput);
         const isValidContent = validateForm(contentInput);
+        console.log("isValidTitle:", isValidTitle, "isValidContent:", isValidContent);
         // 두 필드가 모두 유효하면 버튼 활성화, 아니면 비활성화
         submitButton.disabled = !(isValidTitle && isValidContent);
     }
+
     // 제목, 내용 입력 감지
     titleInput.addEventListener("input", () => {
-        validateForm(titleInput);
         checkFormValidity();
     });
     contentInput.addEventListener("input", () => {
-        validateForm(contentInput);
         checkFormValidity();
     });
 
@@ -41,28 +41,31 @@ document.addEventListener("DOMContentLoaded", () => {
         }
     });
 
-    if(form) {
+    // 초기 유효성 검사 실행 (자동완성 등으로 이미 값이 있다면 처리)
+    checkFormValidity();
+
+    if (form) {
         form.addEventListener("submit", function (event) {
             event.preventDefault();
 
             const isValidTitle = validateForm(titleInput);
             const isValidContent = validateForm(contentInput);
 
-            if(isValidTitle && isValidContent) {
+            if (isValidTitle && isValidContent) {
+                
                 submitButton.classList.add("active");
                 errorMessage.style.display = "none";
                 
                 alert("게시글이 작성되었습니다!");
                 
-                // 서버에 전송하는 로직 추가 가능
+                // 서버 전송 로직 추가 가능
 
                 // 🚀 post.html로 리다이렉트
                 window.location.href = "../posts/posts.html";
-            }
-            else {
+            } else {
                 errorMessage.style.display = "block";
                 errorMessage.textContent = "제목과 내용을 모두 작성해주세요.";
             }
-        })
+        });
     }
-})
+});

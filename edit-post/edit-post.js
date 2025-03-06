@@ -2,8 +2,16 @@ document.addEventListener("DOMContentLoaded", function () {
     const titleInput = document.getElementById("title");
     const contentInput = document.getElementById("content");
     const form = document.getElementById("editForm");
-    const imageInput = document.getElementById("imageInput"); // 이미지 업로드 요소
-    const preview = document.getElementById("preview"); // 이미지 미리보기 요소
+    const imageInput = document.getElementById("imageInput"); // HTML에서 파일 input의 id가 "imageInput"인지 확인하세요.
+    const preview = document.getElementById("preview");
+
+    // localStorage에 저장된 데이터가 없다면 기본값 설정 (예시)
+    if (!localStorage.getItem("postTitle")) {
+        localStorage.setItem("postTitle", "기본 제목");
+    }
+    if (!localStorage.getItem("postContent")) {
+        localStorage.setItem("postContent", "기본 내용");
+    }
 
     // localStorage에서 데이터 가져오기
     titleInput.value = localStorage.getItem("postTitle") || "";
@@ -17,7 +25,7 @@ document.addEventListener("DOMContentLoaded", function () {
         }
     });
 
-    // 이미지 미리보기 기능 (imageInput 요소가 존재하는 경우만 실행)
+    // 이미지 미리보기 기능
     if (imageInput) {
         imageInput.addEventListener("change", function () {
             const file = this.files[0];
@@ -37,18 +45,18 @@ document.addEventListener("DOMContentLoaded", function () {
 
         // 변경된 데이터 저장
         const updatedData = {
-            ...postData, // 기존 데이터 유지
-            title: titleInput.value, // 제목 수정
-            content: contentInput.value // 내용 수정
+            title: titleInput.value,
+            content: contentInput.value
         };
 
-        // 콘솔에서 PATCH 요청 확인 (실제 API 요청 대신 사용)
+        // 콘솔에 PATCH 요청 데이터 출력 (실제 API 요청 시에는 fetch 등을 사용)
         console.log("PATCH 요청 데이터:", updatedData);
 
-        // 페이지 이동 전 URL 확인 (디버깅용)
-        console.log("이동할 URL:", window.location.origin + "/detail-post.html");
+        // 로컬 스토리지 업데이트 (예시)
+        localStorage.setItem("postTitle", titleInput.value);
+        localStorage.setItem("postContent", contentInput.value);
 
-        // 페이지 이동 (경로 확인 후 수정 필요)
-        window.location.href = "../detail-post/detail-post.html"; // 같은 폴더에 detail-post.html이 있는 경우
+        // 수정 후 페이지 이동 (경로 확인 필요)
+        window.location.href = "../posts/posts.html";
     });
 });

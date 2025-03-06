@@ -1,40 +1,44 @@
 <!DOCTYPE html>
 <html lang="ko">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>회원정보수정</title>
-    <link rel="stylesheet" href="edit-profile.css">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>회원정보수정</title>
+  <link rel="stylesheet" href="edit-profile.css">
 </head>
 <body>
-    <div id="navbar-container"></div>
+  <!-- 네비게이션 바 로드 영역 -->
+  <div id="navbar-container"></div>
 
-    <h1>회원정보수정</h1>
+  <h1>회원정보수정</h1>
 
-    <div class="container">
-        <img src="../images/토글.png" alt="프로필 사진" class="profile-img">
+  <div class="container">
+    <img src="../images/토글.png" alt="프로필 사진" class="profile-img">
 
-        <div class="input-group">
-            <label>닉네임</label><br>
-            <input type="text" id="nickname" placeholder="닉네임 입력">
-            <p class="error" id="errorText"></p>
-        </div>
-
-        <button class="btn btn-primary" onclick="updateProfile()">수정하기</button>
-        <button class="btn btn-secondary" onclick="showModal()">회원 탈퇴</button>
+    <!-- 이메일 표시 영역 (user.json에서 불러온 이메일이 표시됨) -->
+    <div id="emailDisplay" class="email-display"></div>
+    
+    <div class="input-group">
+      <label for="nickname">닉네임</label>
+      <input type="text" id="nickname" placeholder="닉네임 입력">
+      <p class="error" id="errorText"></p>
     </div>
 
-    <div class="toast" id="toast">수정 완료</div>
+    <button class="btn btn-primary" onclick="updateProfile()">수정하기</button>
+    <button class="btn btn-secondary" onclick="showModal()">회원 탈퇴</button>
+  </div>
 
-    <div class="overlay" id="overlay"></div>
-    <div class="modal" id="modal">
-        <p>정말 탈퇴하시겠습니까?</p>
-        <button class="btn btn-primary" onclick="confirmDelete()">확인</button>
-        <button class="btn btn-secondary" onclick="hideModal()">취소</button>
-    </div>
+  <div class="toast" id="toast">수정 완료</div>
 
-    <script src="edit-profile.js"></script>
-    <script src="../navbar/navbar.js"></script>
+  <!-- 모달 -->
+  <div class="overlay" id="overlay"></div>
+  <div class="modal" id="modal">
+    <p>정말 탈퇴하시겠습니까?</p>
+    <button class="btn btn-primary" onclick="confirmDelete()">확인</button>
+    <button class="btn btn-secondary" onclick="hideModal()">취소</button>
+  </div>
 
+  <script src="edit-profile.js"></script>
+  <script src="../navbar/navbar.js"></script>
 </body>
 </html>
