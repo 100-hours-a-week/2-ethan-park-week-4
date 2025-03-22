@@ -2,61 +2,80 @@ document.addEventListener("DOMContentLoaded", function () {
     const titleInput = document.getElementById("title");
     const contentInput = document.getElementById("content");
     const form = document.getElementById("editForm");
-    const imageInput = document.getElementById("imageInput"); // HTML에서 파일 input의 id가 "imageInput"인지 확인하세요.
-    const preview = document.getElementById("preview");
-
-    // localStorage에 저장된 데이터가 없다면 기본값 설정 (예시)
-    if (!localStorage.getItem("postTitle")) {
-        localStorage.setItem("postTitle", "기본 제목");
-    }
-    if (!localStorage.getItem("postContent")) {
-        localStorage.setItem("postContent", "기본 내용");
-    }
-
-    // localStorage에서 데이터 가져오기
+    const imageInput = document.getElementById("imageInput");
+    const previewContainer = document.getElementById("previewContainer");
+  
+    // 초기값 설정
     titleInput.value = localStorage.getItem("postTitle") || "";
     contentInput.value = localStorage.getItem("postContent") || "";
-
-    // 제목 길이 제한 (최대 26자)
+  
+    // 제목 길이 제한
     titleInput.addEventListener("input", function () {
-        if (this.value.length > 26) {
-            alert("제목은 최대 26자까지 입력 가능합니다.");
-            this.value = this.value.slice(0, 26);
-        }
+      if (this.value.length > 26) {
+        alert("제목은 최대 26자까지 입력 가능합니다.");
+        this.value = this.value.slice(0, 26);
+      }
     });
-
-    // 이미지 미리보기 기능
-    if (imageInput) {
-        imageInput.addEventListener("change", function () {
-            const file = this.files[0];
-            if (file) {
-                const reader = new FileReader();
-                reader.onload = function (e) {
-                    preview.src = e.target.result;
-                };
-                reader.readAsDataURL(file);
-            }
-        });
-    }
-
-    // 수정 버튼 클릭 시 데이터 PATCH 처리
-    form.addEventListener("submit", function (event) {
-        event.preventDefault(); // 기본 제출 방지
-
-        // 변경된 데이터 저장
-        const updatedData = {
-            title: titleInput.value,
-            content: contentInput.value
+  
+    // 이미지 미리보기
+    imageInput.addEventListener("change", function () {
+      const files = Array.from(this.files);
+      previewContainer.innerHTML = ""; // 기존 미리보기 초기화
+  
+      if (files.length < 1 || files.length > 10) {
+        alert("이미지는 최소 1개, 최대 10개까지 업로드 가능합니다.");
+        imageInput.value = ""; // 파일 초기화
+        return;
+      }
+  
+      files.forEach(file => {
+        const reader = new FileReader();
+        reader.onload = function (e) {
+          const img = document.createElement("img");
+          img.src = e.target.result;
+          img.style.width = "100px";
+          img.style.height = "100px";
+          img.style.objectFit = "cover";
+          previewContainer.appendChild(img);
         };
-
-        // 콘솔에 PATCH 요청 데이터 출력 (실제 API 요청 시에는 fetch 등을 사용)
-        console.log("PATCH 요청 데이터:", updatedData);
-
-        // 로컬 스토리지 업데이트 (예시)
-        localStorage.setItem("postTitle", titleInput.value);
-        localStorage.setItem("postContent", contentInput.value);
-
-        // 수정 후 페이지 이동 (경로 확인 필요)
-        window.location.href = "../posts/posts.html";
+        reader.readAsDataURL(file);
+      });
     });
-});
+  
+    // 수정 제출
+    form.addEventListener("submit", async function (event) {
+      event.preventDefault();
+  
+      const files = Array.from(imageInput.files);
+      if (files.length < 1 || files.length > 10) {
+        alert("이미지는 최소 1개, 최대 10개까지 업로드해야 합니다.");
+        return;
+      }
+  
+      const formData = new FormData();
+      formData.append("title", titleInput.value);
+      formData.append("content", contentInput.value);
+  
+      files.forEach((file, index) => {
+        formData.append("images", file); // 백엔드에서 images[] 또는 images로 받을 수 있도록 설정
+      });
+  
+      try {
+        const postId = localStorage.getItem("postId") || "1"; // 예시용
+        const response = await fetch(`http://localhost:8080/api/posts/${postId}`, {
+          method: "PATCH",
+          body: formData,
+        });
+  
+        if (!response.ok) throw new Error("수정 실패");
+  
+        const result = await response.json();
+        alert("수정이 완료되었습니다.");
+        window.location.href = "../posts/posts.html";
+      } catch (error) {
+        console.error("수정 오류:", error);
+        alert("수정 중 문제가 발생했습니다.");
+      }
+    });
+  });
+  
